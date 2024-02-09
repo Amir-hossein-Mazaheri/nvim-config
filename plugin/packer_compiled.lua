@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/auto-pairs",
+    url = "https://github.com/jiangmiao/auto-pairs"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -103,6 +108,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
+  },
+  neoformat = {
+    loaded = true,
+    path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/neoformat",
+    url = "https://github.com/sbdchd/neoformat"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -133,6 +148,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
+  },
+  ["prettier.nvim"] = {
+    loaded = true,
+    path = "/Users/amirhosseinmazaheri/.local/share/nvim/site/pack/packer/start/prettier.nvim",
+    url = "https://github.com/MunifTanjim/prettier.nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,

@@ -28,3 +28,14 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+vim.o.guifont = "Oxygen Mono:h24"
+
+vim.opt.foldmethod = 'expr'
+
+vim.api.nvim_exec([[
+  set foldexpr=nvim_treesitter#foldexpr()
+]], true)
+
+vim.api.nvim_exec([[
+  set nofoldenable
+]], true)

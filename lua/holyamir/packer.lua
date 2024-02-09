@@ -46,6 +46,12 @@ return require('packer').startup(function(use)
     "neovim/nvim-lspconfig",
   }
 
+  use 'sbdchd/neoformat'
 
+  use 'MunifTanjim/prettier.nvim'
+
+  use 'jose-elias-alvarez/null-ls.nvim'
+
+  use 'jiangmiao/auto-pairs'
 
 end)
