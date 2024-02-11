@@ -54,4 +54,11 @@ return require('packer').startup(function(use)
 
   use 'jiangmiao/auto-pairs'
 
+  use 'SirVer/ultisnips'
+
+  use 'mlaursen/vim-react-snippets'
+
+  use 'preservim/nerdtree'
+
+  use 'windwp/nvim-ts-autotag'
 end)

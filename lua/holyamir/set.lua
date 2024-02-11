@@ -39,3 +39,9 @@ vim.api.nvim_exec([[
 vim.api.nvim_exec([[
   set nofoldenable
 ]], true)
+
+-- just disable nerdtree to be lunched when opening a directory via neovim
+vim.g.NERDTreeHijackNetrw = 0
+
+vim.g.NERDTreeFileLines = 1
+
