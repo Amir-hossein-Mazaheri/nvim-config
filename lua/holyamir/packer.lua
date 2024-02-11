@@ -4,61 +4,78 @@
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
-  -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+    -- Packer can manage itself
+    use 'wbthomason/packer.nvim'
 
-  use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.5',
--- or                            , branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+    -- for fuzzy finding files
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        requires = { { 'nvim-lua/plenary.nvim' } }
+    }
 
-  use "joshdick/onedark.vim"
+    -- onedark theme
+    use "joshdick/onedark.vim"
 
-  use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
+    -- for super fast syntax highlighting
+    use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
-  use ('theprimeagen/harpoon')
+    -- a super nice plugin for jumping between your marked files
+    use('theprimeagen/harpoon')
 
-  use ('mbbill/undotree')
+    -- for undoing for multiple times and also giving you the tree with branches
+    use('mbbill/undotree')
 
-  use ('tpope/vim-fugitive')
+    -- for git integration
+    use('tpope/vim-fugitive')
 
-  use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v3.x',
-	  requires = {
-	    --- Uncomment the two plugins below if you want to manage the language servers from neovim
-	    -- {'williamboman/mason.nvim'},
-	    -- {'williamboman/mason-lspconfig.nvim'},
+    -- next two are for lsp integration and autocompletion
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v3.x',
+        requires = {
+            --- Uncomment the two plugins below if you want to manage the language servers from neovim
+            -- {'williamboman/mason.nvim'},
+            -- {'williamboman/mason-lspconfig.nvim'},
 
-	    -- LSP Support
-	    {'neovim/nvim-lspconfig'},
-	    -- Autocompletion
-	    {'hrsh7th/nvim-cmp'},
-	    {'hrsh7th/cmp-nvim-lsp'},
-	    {'L3MON4D3/LuaSnip'},
-	  }
-	}
+            -- LSP Support
+            { 'neovim/nvim-lspconfig' },
+            -- Autocompletion
+            { 'hrsh7th/nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'L3MON4D3/LuaSnip' },
+        }
+    }
+    use {
+        "williamboman/mason.nvim",
+        "williamboman/mason-lspconfig.nvim",
+        "neovim/nvim-lspconfig",
+    }
 
-  use {
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
-    "neovim/nvim-lspconfig",
-  }
+    -- all of these are for prettier to work
+    use 'sbdchd/neoformat'
+    use 'MunifTanjim/prettier.nvim'
+    use 'jose-elias-alvarez/null-ls.nvim'
 
-  use 'sbdchd/neoformat'
+    -- auto close "", {}, [], and etc
+    use 'jiangmiao/auto-pairs'
 
-  use 'MunifTanjim/prettier.nvim'
+    -- both for react snippets to work
+    use 'SirVer/ultisnips'
+    use 'mlaursen/vim-react-snippets'
 
-  use 'jose-elias-alvarez/null-ls.nvim'
+    use 'preservim/nerdtree'
 
-  use 'jiangmiao/auto-pairs'
+    -- for auto closing and renaming html tags in html and react
+    use 'windwp/nvim-ts-autotag'
 
-  use 'SirVer/ultisnips'
+    use 'SirVer/ultisnips'
 
-  use 'mlaursen/vim-react-snippets'
+    use 'mlaursen/vim-react-snippets'
 
-  use 'preservim/nerdtree'
+    use 'preservim/nerdtree'
 
-  use 'windwp/nvim-ts-autotag'
+    use 'windwp/nvim-ts-autotag'
+
+    -- just a package for showing issues with the project that mostly cautch by lsp servers
+    use "folke/trouble.nvim"
 end)
