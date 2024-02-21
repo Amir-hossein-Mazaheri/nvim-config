@@ -45,3 +45,5 @@ vim.g.NERDTreeHijackNetrw = 0
 
 vim.g.NERDTreeFileLines = 1
 
+vim.g.rainbow_active = 1
+

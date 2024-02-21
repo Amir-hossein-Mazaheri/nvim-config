@@ -63,6 +63,7 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'mlaursen/vim-react-snippets'
 
+    -- nerdtree for showing files and directory tree in the left side of the screen
     use 'preservim/nerdtree'
 
     -- for auto closing and renaming html tags in html and react
@@ -76,6 +77,34 @@ return require('packer').startup(function(use)
 
     use 'windwp/nvim-ts-autotag'
 
+
     -- just a package for showing issues with the project that mostly cautch by lsp servers
     use "folke/trouble.nvim"
+
+    -- just some random plugin to make the developer to only focus on code and hide everything else
+    use {
+        "folke/zen-mode.nvim",
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    }
+
+    -- plugin for go lang integration
+    use 'fatih/vim-go'
+
+    -- wakatime integration
+    use 'wakatime/vim-wakatime'
+
+    -- for code outline
+    use({
+        "stevearc/aerial.nvim",
+        config = function()
+            require("aerial").setup()
+        end,
+    })
+
+    -- for bracker colorizing
+    use 'luochen1990/rainbow'
 end)
