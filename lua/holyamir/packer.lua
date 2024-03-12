@@ -69,15 +69,6 @@ return require('packer').startup(function(use)
     -- for auto closing and renaming html tags in html and react
     use 'windwp/nvim-ts-autotag'
 
-    use 'SirVer/ultisnips'
-
-    use 'mlaursen/vim-react-snippets'
-
-    use 'preservim/nerdtree'
-
-    use 'windwp/nvim-ts-autotag'
-
-
     -- just a package for showing issues with the project that mostly cautch by lsp servers
     use "folke/trouble.nvim"
 
