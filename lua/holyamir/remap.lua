@@ -48,3 +48,21 @@ vim.keymap.set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+-- Nerdtree
+vim.keymap.set("n", "<leader>nn", function()
+    vim.cmd("tabn")
+end)
+
+vim.keymap.set("n", "<leader>np", function()
+    vim.cmd("tabp")
+end)
+
+vim.keymap.set("n", "<leader>nc", function()
+    vim.cmd("tabnew")
+end)
+
+vim.keymap.set("n", "<leader>nq", function()
+    vim.cmd("tabclose")
+end)
+

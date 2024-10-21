@@ -5,7 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
+   use 'wbthomason/packer.nvim'
 
     -- for fuzzy finding files
     use {
@@ -82,9 +82,6 @@ return require('packer').startup(function(use)
         }
     }
 
-    -- plugin for go lang integration
-    use 'fatih/vim-go'
-
     -- wakatime integration
     use 'wakatime/vim-wakatime'
 
@@ -96,6 +93,31 @@ return require('packer').startup(function(use)
         end,
     })
 
-    -- for bracker colorizing
+    -- for bracket colorizing
     use 'luochen1990/rainbow'
+
+    -- to have a minimap on the top right just like vscode to show the code overview in a single view
+    use 'wfxr/minimap.vim'
+    use 'wfxr/code-minimap'
+
+    -- to help with the commenting
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+
+    -- to customize bottom status line
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
+
+    -- show git changes in the buffer
+    use 'lewis6991/gitsigns.nvim'
+
+    -- Themes
+    use { "catppuccin/nvim", as = "catppuccin" }
+    use { "scottmckendry/cyberdream.nvim" }
 end)

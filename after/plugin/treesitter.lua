@@ -39,6 +39,9 @@ require 'nvim-treesitter.configs'.setup {
             typescript = {
                 __default = '// %s',
                 __multiline = '/* %s */',
+                jsx_element = '{/* %s */}',
+                jsx_fragment = '{/* %s */}',
+                jsx_attribute = '// %s',
             },
         }
     }

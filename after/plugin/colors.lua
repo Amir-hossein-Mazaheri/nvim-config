@@ -1,5 +1,5 @@
 function ColorMyTerminal(color)
-	color = color or 'onedark'	
+	color = color or 'onedark'
 
 	vim.cmd.colorscheme(color)
 
@@ -8,3 +8,6 @@ function ColorMyTerminal(color)
 end
 
 ColorMyTerminal()
+-- ColorMyTerminal('catppuccin')
+-- ColorMyTerminal('cyberdream')
+-- ColorMyTerminal('everforest')
