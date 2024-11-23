@@ -5,7 +5,7 @@ vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
     -- Packer can manage itself
-   use 'wbthomason/packer.nvim'
+    use 'wbthomason/packer.nvim'
 
     -- for fuzzy finding files
     use {
@@ -27,6 +27,8 @@ return require('packer').startup(function(use)
 
     -- for git integration
     use('tpope/vim-fugitive')
+
+    use 'github/copilot.vim'
 
     -- next two are for lsp integration and autocompletion
     use {
@@ -57,7 +59,20 @@ return require('packer').startup(function(use)
     use 'jose-elias-alvarez/null-ls.nvim'
 
     -- auto close "", {}, [], and etc
-    use 'jiangmiao/auto-pairs'
+    use {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        config = function()
+            require("nvim-autopairs").setup {}
+        end
+    }
+
+    -- to change the surrounding of a text
+    use 'tpope/vim-surround'
+    use 'tpope/vim-repeat'
+
+    -- for database connection
+    use 'tpope/vim-dadbod'
 
     -- both for react snippets to work
     use 'SirVer/ultisnips'
