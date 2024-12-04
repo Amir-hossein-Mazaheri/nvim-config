@@ -13,8 +13,6 @@ return require('packer').startup(function(use)
         requires = { { 'nvim-lua/plenary.nvim' } }
     }
 
-    -- onedark theme
-    use "joshdick/onedark.vim"
 
     -- for super fast syntax highlighting
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -135,4 +133,8 @@ return require('packer').startup(function(use)
     -- Themes
     use { "catppuccin/nvim", as = "catppuccin" }
     use { "scottmckendry/cyberdream.nvim" }
+    use "joshdick/onedark.vim"
+    use "sainnhe/everforest"
+    use "nordtheme/vim"
+    use 'EdenEast/nightfox.nvim'
 end)
