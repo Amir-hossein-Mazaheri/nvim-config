@@ -44,6 +44,21 @@ require('mason-lspconfig').setup({
     },
 })
 
+function _G.open_definition_in_new_tab()
+    local current_file = vim.api.nvim_buf_get_name(0)
+
+    vim.lsp.buf.definition()
+
+    vim.defer_fn(function()
+        local new_file = vim.api.nvim_buf_get_name(0)
+        vim.api.nvim_command('tabnew')
+        vim.api.nvim_command('edit ' .. new_file)
+        vim.api.nvim_command('tabprevious')
+        vim.api.nvim_command('edit ' .. current_file)
+        vim.api.nvim_command('tabnext')
+    end, 100)
+end
+
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
@@ -51,6 +66,7 @@ lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set("n", "gdn", '<cmd>lua open_definition_in_new_tab()<CR>', opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
