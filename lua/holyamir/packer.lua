@@ -10,9 +10,13 @@ return require('packer').startup(function(use)
     -- for fuzzy finding files
     use {
         'nvim-telescope/telescope.nvim', tag = '0.1.5',
-        requires = { { 'nvim-lua/plenary.nvim' } }
+        requires = { 'nvim-lua/plenary.nvim' }
     }
 
+    use {
+        "nvim-telescope/telescope-file-browser.nvim",
+        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+    }
 
     -- for super fast syntax highlighting
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -83,7 +87,10 @@ return require('packer').startup(function(use)
     use 'windwp/nvim-ts-autotag'
 
     -- just a package for showing issues with the project that mostly cautch by lsp servers
-    use "folke/trouble.nvim"
+    use {
+        "folke/trouble.nvim",
+        requires = { "nvim-tree/nvim-web-devicons" }
+    }
 
     -- just some random plugin to make the developer to only focus on code and hide everything else
     use {
