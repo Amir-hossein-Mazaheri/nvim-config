@@ -82,6 +82,11 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
 cmp.setup({
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body) -- Use LuaSnip for snippet expansion
+        end,
+    },
     mapping = cmp.mapping.preset.insert({
         ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<C-Space>'] = cmp.mapping.complete(),
@@ -91,5 +96,36 @@ cmp.setup({
         ['<C-d>'] = cmp.mapping.scroll_docs(4),
         ['<C-n>'] = cmp.mapping.select_next_item(),
         ['<C-p>'] = cmp.mapping.select_prev_item(),
+        ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+                cmp.confirm({ select = true }) -- Confirm completion with Tab
+            else
+                fallback()             -- Fallback to default Tab behavior
+            end
+        end, { 'i', 's' }),
     })
+})
+
+require('lspconfig').emmet_ls.setup({
+  filetypes = {
+    'html', 'css', 'javascriptreact', 'typescriptreact',
+    'svelte', 'vue', 'astro', 'php'
+  },
+  init_options = {
+    html = {
+      options = {
+        ["bem.enabled"] = true,
+        -- Add these lines to enable HTML5 template expansion:
+        ["output.selfClosingStyle"] = "xhtml", -- or "html"
+        ["output.attributeQuotes"] = "double",
+      },
+    },
+    jsx = {
+      options = {
+        ["output.selfClosingStyle"] = "xhtml",
+      },
+    },
+    -- Enable expansion for "!" (HTML5 boilerplate)
+    ["emmet.triggerExpansionOnTab"] = true,
+  },
 })
