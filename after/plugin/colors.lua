@@ -9,7 +9,7 @@ end
 
 -- let g:everforest_background = 'hard'
 
--- ColorMyTerminal()
+ColorMyTerminal()
 -- ColorMyTerminal('everforest')
 -- ColorMyTerminal('nightfox')
 -- ColorMyTerminal('nord')

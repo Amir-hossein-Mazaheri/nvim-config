@@ -47,6 +47,8 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
+            {  'saadparwaiz1/cmp_luasnip' },
+            { 'rafamadriz/friendly-snippets' }
         }
     }
     use {
@@ -54,6 +56,9 @@ return require('packer').startup(function(use)
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }
+
+    -- For enabling emmet abrevation in html and jsx
+    use 'aca/emmet-ls'
 
     -- all of these are for prettier to work
     use 'sbdchd/neoformat'
