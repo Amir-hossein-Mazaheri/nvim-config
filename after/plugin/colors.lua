@@ -11,8 +11,8 @@ end
 
 -- ColorMyTerminal()
 -- ColorMyTerminal('everforest')
-ColorMyTerminal('nightfox')
+-- ColorMyTerminal('nightfox')
 -- ColorMyTerminal('nord')
--- ColorMyTerminal('catppuccin')
+ColorMyTerminal('catppuccin')
 -- ColorMyTerminal('cyberdream')
 -- ColorMyTerminal('everforest')
