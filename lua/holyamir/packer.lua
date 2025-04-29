@@ -47,7 +47,7 @@ return require('packer').startup(function(use)
             { 'hrsh7th/nvim-cmp' },
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'L3MON4D3/LuaSnip' },
-            {  'saadparwaiz1/cmp_luasnip' },
+            { 'saadparwaiz1/cmp_luasnip' },
             { 'rafamadriz/friendly-snippets' }
         }
     }
@@ -63,7 +63,11 @@ return require('packer').startup(function(use)
     -- all of these are for prettier to work
     use 'sbdchd/neoformat'
     use 'MunifTanjim/prettier.nvim'
-    use 'jose-elias-alvarez/null-ls.nvim'
+    use {
+        "nvimtools/none-ls.nvim",
+        requires = { "nvim-lua/plenary.nvim" },
+    }
+
 
     -- auto close "", {}, [], and etc
     use {

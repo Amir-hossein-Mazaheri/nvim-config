@@ -100,32 +100,31 @@ cmp.setup({
             if cmp.visible() then
                 cmp.confirm({ select = true }) -- Confirm completion with Tab
             else
-                fallback()             -- Fallback to default Tab behavior
+                fallback()                     -- Fallback to default Tab behavior
             end
         end, { 'i', 's' }),
     })
 })
 
 require('lspconfig').emmet_ls.setup({
-  filetypes = {
-    'html', 'css', 'javascriptreact', 'typescriptreact',
-    'svelte', 'vue', 'astro', 'php'
-  },
-  init_options = {
-    html = {
-      options = {
-        ["bem.enabled"] = true,
-        -- Add these lines to enable HTML5 template expansion:
-        ["output.selfClosingStyle"] = "xhtml", -- or "html"
-        ["output.attributeQuotes"] = "double",
-      },
+    filetypes = {
+        'html', 'css', 'javascriptreact', 'typescriptreact',
+        'svelte', 'vue', 'astro', 'php'
     },
-    jsx = {
-      options = {
-        ["output.selfClosingStyle"] = "xhtml",
-      },
+    init_options = {
+        html = {
+            options = {
+                ["bem.enabled"] = true,
+                ["output.selfClosingStyle"] = "xhtml", -- or "html"
+                ["output.attributeQuotes"] = "double",
+            },
+        },
+        jsx = {
+            options = {
+                ["output.selfClosingStyle"] = "xhtml",
+            },
+        },
+        ["emmet.triggerExpansionOnTab"] = true,
     },
-    -- Enable expansion for "!" (HTML5 boilerplate)
-    ["emmet.triggerExpansionOnTab"] = true,
-  },
 })
+
