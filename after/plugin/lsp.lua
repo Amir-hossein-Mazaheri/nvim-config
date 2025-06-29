@@ -81,6 +81,13 @@ end)
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
+cmp.setup.filetype({ "sql" }, {
+    sources = {
+        { name = "vim-dadbod-completion" },
+        { name = "buffer" }
+    },
+})
+
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -127,4 +134,3 @@ require('lspconfig').emmet_ls.setup({
         ["emmet.triggerExpansionOnTab"] = true,
     },
 })
-

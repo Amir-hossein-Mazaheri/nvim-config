@@ -14,9 +14,13 @@ return require('packer').startup(function(use)
     }
 
     use {
-        "nvim-telescope/telescope-file-browser.nvim",
-        requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+        'nvim-telescope/telescope-file-browser.nvim',
+        requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     }
+
+    use 'tpope/vim-dadbod'
+    use 'kristijanhusak/vim-dadbod-ui'
+    use 'kristijanhusak/vim-dadbod-completion'
 
     -- for super fast syntax highlighting
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
@@ -81,9 +85,6 @@ return require('packer').startup(function(use)
     -- to change the surrounding of a text
     use 'tpope/vim-surround'
     use 'tpope/vim-repeat'
-
-    -- for database connection
-    use 'tpope/vim-dadbod'
 
     -- both for react snippets to work
     use 'SirVer/ultisnips'

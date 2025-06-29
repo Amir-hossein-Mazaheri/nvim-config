@@ -7,12 +7,11 @@ function ColorMyTerminal(color)
 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
--- let g:everforest_background = 'hard'
+vim.g.everforest_background = 'hard'
 
-ColorMyTerminal()
+-- ColorMyTerminal()
 -- ColorMyTerminal('everforest')
--- ColorMyTerminal('nightfox')
+ColorMyTerminal('nightfox')
 -- ColorMyTerminal('nord')
-ColorMyTerminal('catppuccin')
+-- ColorMyTerminal('catppuccin')
 -- ColorMyTerminal('cyberdream')
--- ColorMyTerminal('everforest')
