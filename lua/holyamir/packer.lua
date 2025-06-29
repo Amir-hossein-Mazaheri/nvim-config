@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
         requires = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' }
     }
 
+    -- Modern database integration for neovim
     use 'tpope/vim-dadbod'
     use 'kristijanhusak/vim-dadbod-ui'
     use 'kristijanhusak/vim-dadbod-completion'
@@ -146,6 +147,28 @@ return require('packer').startup(function(use)
 
     -- show git changes in the buffer
     use 'lewis6991/gitsigns.nvim'
+
+    -- Rest client like postman
+    -- use {
+    --     'j-hui/fidget.nvim', -- progress UI
+    --     tag = 'legacy',      -- fidget’s latest stable tag
+    --     config = function() require('fidget').setup {} end,
+    -- }
+    use {
+        'rest-nvim/rest.nvim',
+        requires = { 'nvim-lua/plenary.nvim', 'j-hui/fidget.nvim' },
+        config = function()
+            require('rest-nvim').setup({
+                result_split_horizontal = false,
+                highlight = {
+                    enabled = true,
+                    timeout = 500,
+                },
+                fidget = false,
+                jump_to_request = false,
+            })
+        end
+    }
 
     -- Themes
     use { "catppuccin/nvim", as = "catppuccin" }
