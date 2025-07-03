@@ -149,26 +149,7 @@ return require('packer').startup(function(use)
     use 'lewis6991/gitsigns.nvim'
 
     -- Rest client like postman
-    -- use {
-    --     'j-hui/fidget.nvim', -- progress UI
-    --     tag = 'legacy',      -- fidget’s latest stable tag
-    --     config = function() require('fidget').setup {} end,
-    -- }
-    use {
-        'rest-nvim/rest.nvim',
-        requires = { 'nvim-lua/plenary.nvim', 'j-hui/fidget.nvim' },
-        config = function()
-            require('rest-nvim').setup({
-                result_split_horizontal = false,
-                highlight = {
-                    enabled = true,
-                    timeout = 500,
-                },
-                fidget = false,
-                jump_to_request = false,
-            })
-        end
-    }
+    use 'mistweaverco/kulala.nvim'
 
     -- Themes
     use { "catppuccin/nvim", as = "catppuccin" }
