@@ -151,6 +151,40 @@ return require('packer').startup(function(use)
     -- Rest client like postman
     use 'mistweaverco/kulala.nvim'
 
+
+    -- Required plugins
+    use 'MunifTanjim/nui.nvim'
+    use 'MeanderingProgrammer/render-markdown.nvim'
+
+    -- Avante Cursor like plugin for vim
+    use 'HakonHarnes/img-clip.nvim'
+    use 'zbirenbaum/copilot.lua'
+    use 'stevearc/dressing.nvim'
+    use 'folke/snacks.nvim'
+    use {
+        'yetone/avante.nvim',
+        branch = 'main',
+        run = 'make BUILD_FROM_SOURCE=true',
+        opts = { 
+            provider = "copilot",
+            providers = {
+                copilot = {
+                    enabled = true,
+                    model = "copilot/claude-sonnet-4",
+                    keymaps = {
+                        accept = "<C-l>",
+                        next = "<C-n>",
+                        prev = "<C-p>",
+                        dismiss = "<C-e>",
+                    },
+                },
+            }
+        },
+        config = function()
+            require('avante').setup()
+        end
+    }
+
     -- Themes
     use { "catppuccin/nvim", as = "catppuccin" }
     use { "scottmckendry/cyberdream.nvim" }

@@ -1,13 +1,13 @@
 require('kulala').setup({
-  default_view = "body",
-  default_env = ".env.dev",
-  debug = false,
+    default_view = "body",
+    default_env = ".env.dev",
+    debug = false,
 })
 
 -- Run current request
 vim.keymap.set('n', '<leader>rr', '<cmd>lua require("kulala").run()<CR>')
 
--- Set environment 
+-- Set environment
 vim.keymap.set('n', '<leader>re', '<cmd>lua require("kulala").set_selected_env()<CR>')
 
 -- Show stats/info
