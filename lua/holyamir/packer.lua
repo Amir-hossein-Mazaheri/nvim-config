@@ -91,8 +91,16 @@ return require('packer').startup(function(use)
     use 'SirVer/ultisnips'
     use 'mlaursen/vim-react-snippets'
 
-    -- nerdtree for showing files and directory tree in the left side of the screen
-    use 'preservim/nerdtree'
+    -- buffer line for tabing
+    use { 'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons' }
+
+    -- netrw replacement
+    use({
+        "stevearc/oil.nvim",
+        config = function()
+            require("oil").setup()
+        end,
+    })
 
     -- for auto closing and renaming html tags in html and react
     use 'windwp/nvim-ts-autotag'
@@ -128,8 +136,8 @@ return require('packer').startup(function(use)
     use 'luochen1990/rainbow'
 
     -- to have a minimap on the top right just like vscode to show the code overview in a single view
-    use 'wfxr/minimap.vim'
-    use 'wfxr/code-minimap'
+    -- use 'wfxr/minimap.vim'
+    -- use 'wfxr/code-minimap'
 
     -- to help with the commenting
     use {
@@ -165,7 +173,7 @@ return require('packer').startup(function(use)
         'yetone/avante.nvim',
         branch = 'main',
         run = 'make BUILD_FROM_SOURCE=true',
-        opts = { 
+        opts = {
             provider = "copilot",
             providers = {
                 copilot = {
