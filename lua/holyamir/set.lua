@@ -28,6 +28,9 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- Disable various command line messages
+vim.opt.shortmess:append("WcC")
+
 vim.o.guifont = "Oxygen Mono:h24"
 
 vim.opt.foldmethod = 'expr'

@@ -162,7 +162,13 @@ return require('packer').startup(function(use)
 
     -- Required plugins
     use 'MunifTanjim/nui.nvim'
-    use 'MeanderingProgrammer/render-markdown.nvim'
+    use {
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+            file_types = { "markdown", "md", "Avante" },
+        },
+        ft = { "markdown", "md", "Avante" },
+    }
 
     -- Avante Cursor like plugin for vim
     use 'HakonHarnes/img-clip.nvim'
@@ -189,7 +195,34 @@ return require('packer').startup(function(use)
             }
         },
         config = function()
-            require('avante').setup()
+            require('avante').setup({
+                input = {
+                    provider = "dressing",
+                    provider_opts = {
+                        title = "Avante Input",
+                    }
+                },
+                -- Disable the sidebar completely
+                behaviour = {
+                    auto_suggestions = false,
+                    auto_set_highlight_group = true,
+                    auto_set_keymaps = true,
+                    auto_apply_diff_after_generation = false,
+                    support_paste_from_clipboard = false,
+                },
+                windows = {
+                    position = "right", -- or "left"
+                    width = 30,
+                    sidebar_header = {
+                        align = "center",
+                        rounded = true,
+                    },
+                    sidebar = false,
+                },
+                panel = {
+                    enabled = false,
+                },
+            })
         end
     }
 
