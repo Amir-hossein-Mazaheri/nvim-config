@@ -97,9 +97,6 @@ return require('packer').startup(function(use)
     -- netrw replacement
     use({
         "stevearc/oil.nvim",
-        config = function()
-            require("oil").setup()
-        end,
     })
 
     -- for auto closing and renaming html tags in html and react
