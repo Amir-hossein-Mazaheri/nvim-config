@@ -113,7 +113,9 @@ cmp.setup({
     })
 })
 
-require('lspconfig').emmet_ls.setup({
+local lspconfig = require('lspconfig')
+
+lspconfig.emmet_ls.setup({
     filetypes = {
         'html', 'css', 'javascriptreact', 'typescriptreact',
         'svelte', 'vue', 'astro', 'php'
@@ -132,5 +134,23 @@ require('lspconfig').emmet_ls.setup({
             },
         },
         ["emmet.triggerExpansionOnTab"] = true,
+    },
+})
+
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust_analyzer"] = {
+            cargo = {
+                features = "all",
+            },
+            procMacro = {
+                ignored = {
+                    leptos_macro = {
+                        "server",
+                        "component",
+                    }
+                }
+            }
+        }
     },
 })

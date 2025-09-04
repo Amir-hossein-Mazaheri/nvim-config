@@ -5,7 +5,7 @@ local actions = require("telescope.actions")
 
 require("trouble").setup({
     position = "left", -- Moves the list to the left sidebar
-    width = 40,      -- Adjust sidebar width as needed
+    width = 40,        -- Adjust sidebar width as needed
 })
 
 telescope.load_extension("file_browser")
