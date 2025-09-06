@@ -118,7 +118,7 @@ local lspconfig = require('lspconfig')
 lspconfig.emmet_ls.setup({
     filetypes = {
         'html', 'css', 'javascriptreact', 'typescriptreact',
-        'svelte', 'vue', 'astro', 'php'
+        'svelte', 'vue', 'astro', 'php', 'rust'
     },
     init_options = {
         html = {

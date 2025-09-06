@@ -35,8 +35,6 @@ return require('packer').startup(function(use)
     -- for git integration
     use('tpope/vim-fugitive')
 
-    use 'github/copilot.vim'
-
     -- next two are for lsp integration and autocompletion
     use {
         'VonHeikemen/lsp-zero.nvim',
@@ -172,6 +170,8 @@ return require('packer').startup(function(use)
     use 'zbirenbaum/copilot.lua'
     use 'stevearc/dressing.nvim'
     use 'folke/snacks.nvim'
+    -- REMEMBER THIS PLUGIN IS DUMB AND THROWS ERROR IN THE FIRST INSTALL TO FIX THAT RUN ":AvanteBuild" TO BUILD THE SOURCE CODE
+    -- ALSO YOU HAVE TO AUTHENTICATE COPILOT OR SET THE API KEY
     use {
         'yetone/avante.nvim',
         branch = 'main',
