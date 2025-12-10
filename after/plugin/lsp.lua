@@ -113,9 +113,10 @@ cmp.setup({
     })
 })
 
-local lspconfig = require('lspconfig')
+vim.lsp.enable('emmet_ls')
+vim.lsp.enable('rust_analyzer')
 
-lspconfig.emmet_ls.setup({
+vim.lsp.config('emmet_ls', {
     filetypes = {
         'html', 'css', 'javascriptreact', 'typescriptreact',
         'svelte', 'vue', 'astro', 'php', 'rust'
@@ -137,7 +138,7 @@ lspconfig.emmet_ls.setup({
     },
 })
 
-lspconfig.rust_analyzer.setup({
+vim.lsp.config('rust_analyzer', {
     settings = {
         ["rust_analyzer"] = {
             cargo = {

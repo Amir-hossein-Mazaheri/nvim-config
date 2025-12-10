@@ -1,4 +1,4 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- This file CAN be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
@@ -27,7 +27,12 @@ return require('packer').startup(function(use)
     use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
 
     -- a super nice plugin for jumping between your marked files
-    use('theprimeagen/harpoon')
+    -- use "nvim-lua/plenary.nvim"
+    use {
+        "ThePrimeagen/harpoon",
+        branch = "harpoon2",
+        requires = { { "nvim-lua/plenary.nvim" } }
+    }
 
     -- for undoing for multiple times and also giving you the tree with branches
     use('mbbill/undotree')
@@ -106,19 +111,6 @@ return require('packer').startup(function(use)
         requires = { "nvim-tree/nvim-web-devicons" }
     }
 
-    -- just some random plugin to make the developer to only focus on code and hide everything else
-    use {
-        "folke/zen-mode.nvim",
-        opts = {
-            -- your configuration comes here
-            -- or leave it empty to use the default settings
-            -- refer to the configuration section below
-        }
-    }
-
-    -- wakatime integration
-    use 'wakatime/vim-wakatime'
-
     -- for code outline
     use({
         "stevearc/aerial.nvim",
@@ -128,7 +120,7 @@ return require('packer').startup(function(use)
     })
 
     -- for bracket colorizing
-    use 'luochen1990/rainbow'
+    -- use 'luochen1990/rainbow'
 
     -- to have a minimap on the top right just like vscode to show the code overview in a single view
     -- use 'wfxr/minimap.vim'
@@ -167,7 +159,21 @@ return require('packer').startup(function(use)
 
     -- Avante Cursor like plugin for vim
     use 'HakonHarnes/img-clip.nvim'
-    use 'zbirenbaum/copilot.lua'
+    use {
+        "zbirenbaum/copilot.lua",
+        shallow = false,
+        git = {
+            clone_timeout = 600, -- 10 minutes
+            subcommands = {      -- ensures timeout applies correctly
+                update = "pull --ff-only --progress --rebase=false --depth=1",
+                install = "clone --depth=1 --progress",
+            },
+        },
+        requires = {
+            "copilotlsp-nvim/copilot-lsp", -- (optional) for NES functionality
+        },
+    }
+    -- use 'github/copilot.vim'
     use 'stevearc/dressing.nvim'
     use 'folke/snacks.nvim'
     -- REMEMBER THIS PLUGIN IS DUMB AND THROWS ERROR IN THE FIRST INSTALL TO FIX THAT RUN ":AvanteBuild" TO BUILD THE SOURCE CODE
@@ -223,9 +229,11 @@ return require('packer').startup(function(use)
         end
     }
 
+    -- PlatformIO Plugin
+    use 'normen/vim-pio'
+
     -- Themes
     use { "catppuccin/nvim", as = "catppuccin" }
-    use { "scottmckendry/cyberdream.nvim" }
     use "joshdick/onedark.vim"
     use "sainnhe/everforest"
     use "nordtheme/vim"
